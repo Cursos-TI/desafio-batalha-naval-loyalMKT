@@ -5,11 +5,52 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
+    
     // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}; // Definindo variável linha
+    int tabuleiro[10][10]; // Matriz do tabuleiro
 
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            tabuleiro[i][j] = 0; // Preenchimento do tabuleiro com 0 (água)
+
+        }
+        
+    }
+    
+    for (int i = 1; i < 4; i++) // Definição do local do barco
+    {
+        for (int j = 2; j < 5; j++) // Definição do local do barco
+        {
+            tabuleiro[5][j] = 3; // Implementação do navio horizontal
+            tabuleiro[i][7] = 3; // Implementação do navio vertical
+        }
+    }
+    
+    printf(" TABULEIRO BATALHA NAVAL\n"); // Título do tabuleiro
+
+    printf("   "); // Espaçamento
+
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%c ", linha[i]); // Implementação da linha no tabuleiro
+    }
+    
+    printf("\n"); // Espaçamento
+
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%2d ", i + 1); // Implementação da coluna numérica no tabuleiro, alocando 2 espaços para alinhamento das casas
+
+        for (int j = 0; j < 10; j++)
+        {
+            printf("%d ", tabuleiro[i][j]); // Impressão do tabuleiro em si
+        }
+        printf("\n"); // Espaçamento para casas
+    }
+    
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
