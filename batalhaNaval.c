@@ -6,7 +6,7 @@
 
 int main() {
     
-    // Nível Novato - Posicionamento dos Navios
+    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}; // Definindo variável linha
     int tabuleiro[10][10]; // Matriz do tabuleiro
 
@@ -15,17 +15,24 @@ int main() {
         for (int j = 0; j < 10; j++)
         {
             tabuleiro[i][j] = 0; // Preenchimento do tabuleiro com 0 (água)
-
         }
-        
     }
     
-    for (int i = 1; i < 4; i++) // Definição do local do barco
+    for (int i = 1; i < 4; i++) // Definição do local do navio 1
     {
-        for (int j = 2; j < 5; j++) // Definição do local do barco
+        for (int j = 2; j < 5; j++) // Definição do local do navio 2
         {
             tabuleiro[5][j] = 3; // Implementação do navio horizontal
-            tabuleiro[i][7] = 3; // Implementação do navio vertical
+            tabuleiro[i][5] = 3; // Implementação do navio vertical
+        }
+    }
+    
+    for (int i = 0; i < 3; i++) // Definição do local do navio 3
+    {
+        for (int j = 0; j < 3; j++) // Definição do local do navio 4
+        {
+            tabuleiro[i][9 - i] = 3; // Implementação do navio na diagonal secundária
+            tabuleiro[0 + j][j] = 3; // Implementação do navio na diagonal primária
         }
     }
     
@@ -51,10 +58,6 @@ int main() {
         printf("\n"); // Espaçamento para casas
     }
     
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
